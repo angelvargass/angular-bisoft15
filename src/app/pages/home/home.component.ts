@@ -3,6 +3,7 @@ import {MatTableDataSource} from "@angular/material/table";
 import {MovieModel} from "../../models/movie.model";
 import {MoviesService} from "../../services/movies.service";
 import {MatPaginator} from "@angular/material/paginator";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -15,11 +16,12 @@ export class HomeComponent implements OnInit {
     'id',
     'name',
     'description',
-    'calification'
+    'calification',
+    'delete',
   ]
   @ViewChildren(MatPaginator) paginator: any;
 
-  constructor(private moviesService: MoviesService) { }
+  constructor(private moviesService: MoviesService, private route: Router) { }
 
   ngOnInit(): void {
     this.getMovies();
@@ -30,6 +32,14 @@ export class HomeComponent implements OnInit {
       this.dataSource = new MatTableDataSource<MovieModel>(res);
       this.dataSource.paginator = this.paginator._results[0];
     });
+  }
+
+  editMovie(id: string) {
+    this.route.navigate(['edit', id]);
+  }
+
+  deleteMovie(id: string) {
+    
   }
 
 }

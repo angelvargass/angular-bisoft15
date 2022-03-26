@@ -16,4 +16,14 @@ export class MoviesService {
     const url = `${this.API_URL}/get-all`;
     return this.http.get<MovieModel[]>(url);
   }
+
+  saveMovie(movie: MovieModel) {
+    const url = `${this.API_URL}/save`;
+    return this.http.post(url, movie);
+  }
+
+  getMovieById(id: string) {
+    const url = `${this.API_URL}/get-by-id/${id}`;
+    return this.http.get<MovieModel>(url);
+  }
 }

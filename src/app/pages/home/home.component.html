@@ -1,7 +1,5 @@
 <div class="title">
   <h1>Movies list</h1>
-
-
 </div>
 
 <div class="content">
@@ -9,22 +7,27 @@
 
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef class="align-center"> No. </th>
-      <td mat-cell *matCellDef="let movie" class="align-center"> {{ dataSource.data.indexOf(movie) + 1 }} </td>
+      <td mat-cell *matCellDef="let movie" class="align-center" (click)="editMovie(movie.id)"> {{ dataSource.data.indexOf(movie) + 1 }} </td>
     </ng-container>
 
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef class="align-center"> Name </th>
-      <td mat-cell *matCellDef="let movie" class="align-center"> {{ movie.name }} </td>
+      <td mat-cell *matCellDef="let movie" class="align-center" (click)="editMovie(movie.id)"> {{ movie.name }} </td>
     </ng-container>
 
     <ng-container matColumnDef="description">
       <th mat-header-cell *matHeaderCellDef class="align-center"> Description </th>
-      <td mat-cell *matCellDef="let movie" class="align-center"> {{ movie.description }} </td>
+      <td mat-cell *matCellDef="let movie" class="align-center" (click)="editMovie(movie.id)"> {{ movie.description }} </td>
     </ng-container>
 
     <ng-container matColumnDef="calification">
       <th mat-header-cell *matHeaderCellDef class="align-center"> Calification </th>
-      <td mat-cell *matCellDef="let movie" class="align-center"> {{ movie.calification }} </td>
+      <td mat-cell *matCellDef="let movie" class="align-center" (click)="editMovie(movie.id)"> {{ movie.calification }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef class="align-center"> Delete </th>
+      <td mat-cell *matCellDef="let movie" class="align-center" (click)="deleteMovie(movie.id)"> X </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>

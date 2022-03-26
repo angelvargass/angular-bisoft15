@@ -17,3 +17,13 @@
 .align-center {
   text-align: center;
 }
+
+table {
+  height: 400px;
+  width: 50%;
+}
+
+.mat-row:hover {
+  background-color: #D3D3D3;
+  cursor: pointer;
+}

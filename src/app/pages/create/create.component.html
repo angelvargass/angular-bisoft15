@@ -1,0 +1,42 @@
+<div>
+  <h1 *ngIf="!editMode">Create a new movie record</h1>
+  <h1 *ngIf="editMode">Edit a movie record</h1>
+</div>
+
+
+<div class="example-container">
+  <div class="form-container">
+    <form [formGroup]="movieForm" (submit)="formSubmit()">
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Name </mat-label>
+        <input id="name" matInput formControlName="name" required>
+
+        <mat-error *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+          <span *ngIf="name?.errors?.['required']">Name is required.</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Description </mat-label>
+        <input id="description" matInput formControlName="description" required>
+
+        <mat-error *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+          <span *ngIf="description?.errors?.['required']">Description is required.</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="form-field" appearance="outline">
+        <mat-label> Calification </mat-label>
+        <input id="calification" matInput formControlName="calification" required type="number">
+
+        <mat-error *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+          <span *ngIf="calification?.errors?.['required']">Calification is required.</span>
+        </mat-error>
+      </mat-form-field>
+
+
+
+      <button mat-raised-button color="primary" type="submit">Create</button>
+    </form>
+  </div>
+</div>

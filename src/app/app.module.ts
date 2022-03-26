@@ -13,6 +13,10 @@ import {HttpClientModule} from "@angular/common/http";
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatInputModule} from "@angular/material/input";
+import { CreateComponent } from './pages/create/create.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import {MatButtonModule} from "@angular/material/button";
+import {NgxStarRatingModule} from "ngx-star-rating";
 
 @NgModule({
   declarations: [
@@ -20,7 +24,8 @@ import {MatInputModule} from "@angular/material/input";
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    LayoutComponent
+    LayoutComponent,
+    CreateComponent
   ],
   imports: [
     HttpClientModule,
@@ -31,6 +36,9 @@ import {MatInputModule} from "@angular/material/input";
     MatTableModule,
     MatPaginatorModule,
     MatInputModule,
+    ReactiveFormsModule,
+    MatButtonModule,
+    NgxStarRatingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
