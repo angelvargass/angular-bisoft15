@@ -11,6 +11,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class CreateComponent implements OnInit {
 
   movieForm = this.fb.group({
+    id: [null],
     name: [null, Validators.required,],
     description: [null, Validators.required],
     calification: [null, [Validators.required, Validators.min(1), Validators.max(5)]],
@@ -35,17 +36,35 @@ export class CreateComponent implements OnInit {
   private setData(movieId: string) {
     if(this.editMode) {
       this.moviesService.getMovieById(movieId).subscribe(res => {
-
+        console.log(res);
+        this.movieForm.controls['id'].setValue(res.id);
+        this.movieForm.controls['name'].setValue(res.name);
+        this.movieForm.controls['description'].setValue(res.description);
+        this.movieForm.controls['calification'].setValue(res.calification);
       });
     }
   }
 
   formSubmit() {
     if(this.movieForm.valid) {
-      this.moviesService.saveMovie(this.movieForm.value).subscribe(res => {
-        this.router.navigate(['/home']);
-      });
+      if(this.editMode) {
+        this.updateMovie(this.movieForm.value);
+      } else {
+        this.saveMovie(this.movieForm.value);
+      }
     }
+  }
+
+  saveMovie(form: any) {
+    this.moviesService.saveMovie(form).subscribe(res => {
+      this.router.navigate(['/home']);
+    });
+  }
+
+  updateMovie(form: any) {
+    this.moviesService.updateMovie(form).subscribe(res => {
+      this.router.navigate(['/home']);
+    });
   }
 
   get name() {

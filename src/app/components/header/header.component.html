@@ -1,3 +1,16 @@
-<mat-toolbar color="primary">
-  <span>Movie Database</span>
-</mat-toolbar>
+<p>
+  <mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <a [routerLink]="'/home'">
+      <span>Movie Database</span>
+    </a>
+    <span class="example-spacer"></span>
+    <a [routerLink]="'/create'">
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>library_add</mat-icon>
+      </button>
+    </a>
+  </mat-toolbar>
+</p>

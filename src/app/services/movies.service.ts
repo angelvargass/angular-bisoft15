@@ -26,4 +26,14 @@ export class MoviesService {
     const url = `${this.API_URL}/get-by-id/${id}`;
     return this.http.get<MovieModel>(url);
   }
+
+  updateMovie(movie: MovieModel) {
+    const url = `${this.API_URL}/update`;
+    return this.http.put(url, movie);
+  }
+
+  deleteMovie(id: string) {
+    const url = `${this.API_URL}/delete/${id}`;
+    return this.http.delete(url);
+  }
 }

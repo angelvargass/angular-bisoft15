@@ -11,6 +11,9 @@ import {Router} from "@angular/router";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+  movies: MovieModel[] = [];
+
   dataSource: MatTableDataSource<MovieModel> = new MatTableDataSource<MovieModel>();
   columnsToDisplay = [
     'id',
@@ -29,7 +32,8 @@ export class HomeComponent implements OnInit {
 
   getMovies() {
     this.moviesService.getAllMovies().subscribe(res => {
-      this.dataSource = new MatTableDataSource<MovieModel>(res);
+      this.movies = res;
+      this.dataSource = new MatTableDataSource<MovieModel>(this.movies);
       this.dataSource.paginator = this.paginator._results[0];
     });
   }
@@ -39,7 +43,9 @@ export class HomeComponent implements OnInit {
   }
 
   deleteMovie(id: string) {
-    
+    this.moviesService.deleteMovie(id).subscribe(res => {
+      this.dataSource.data = this.dataSource.data.filter(x => x.id !== id);
+    });
   }
 
 }

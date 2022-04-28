@@ -17,6 +17,7 @@ import { CreateComponent } from './pages/create/create.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {NgxStarRatingModule} from "ngx-star-rating";
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -27,19 +28,20 @@ import {NgxStarRatingModule} from "ngx-star-rating";
     LayoutComponent,
     CreateComponent
   ],
-  imports: [
-    HttpClientModule,
-    BrowserModule,
-    AppRoutingModule,
-    NoopAnimationsModule,
-    MatToolbarModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatInputModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    NgxStarRatingModule,
-  ],
+    imports: [
+        HttpClientModule,
+        BrowserModule,
+        AppRoutingModule,
+        NoopAnimationsModule,
+        MatToolbarModule,
+        MatTableModule,
+        MatPaginatorModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        NgxStarRatingModule,
+        MatIconModule,
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
