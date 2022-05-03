@@ -51,6 +51,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: 'bisoft15frontend'
-          slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_14D02924652F439F9637E828C7F966FB }}
-          package: .
+          package: .dist/movie-database
